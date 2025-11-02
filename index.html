@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perpustakaan Digital</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navigasi -->
+    <nav class="navbar">
+      <div class="logo">📚 Perpustakaan.digital</div>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+      <ul class="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#perpustakaan">Perpustakaan</a></li>
+        <li><a href="#tentang">Tentang</a></li>
+        <li><a href="#kontak">Kontak</a></li>
+      </ul>
+    </nav>
+
+    <!-- Halaman Home -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Selamat Datang di Perpustakaan Digital</h1>
+        <p>Pinjam buku favoritmu dengan mudah dan cepat!</p>
+        <a href="#perpustakaan" class="btn-lihat-buku">Lihat Buku</a>
+      </div>
+    </section>
+
+    <!-- Halaman Perpustakaan -->
+    <section id="perpustakaan" class="content">
+      <h2>Daftar Buku</h2>
+      <div class="book-list">
+        <div class="book">
+          <img src="img/Laskar pelangi.jpeg" alt="Buku 1" />
+          <h3>Laskar Pelangi</h3>
+          <p>Oleh: Andrea Hirata</p>
+          <p>
+            Kisah inspiratif tentang perjuangan sepuluh anak di Belitung yang
+            bersekolah di sebuah SD yang nyaris roboh. Menekankan pentingnya
+            pendidikan dan persahabatan.
+          </p>
+          <button onclick="showForm('Laskar Pelangi')">Pinjam Buku</button>
+        </div>
+
+        <div class="book">
+          <img src="img/laut bercerita.jpeg" alt="Buku 2" />
+          <h3>Laut Bercerita</h3>
+          <p>Oleh: Leila S. Chudori</p>
+          <p>
+            Sebuah novel yang menyoroti kisah para aktivis mahasiswa yang hilang
+            pada masa Orde Baru, diceritakan dari sudut pandang korban dan
+            keluarganya.
+          </p>
+          <button onclick="showForm('Laut Bercerita')">Pinjam Buku</button>
+        </div>
+
+        <div class="book">
+          <img src="img/cantik itu luka.jpeg" alt="Buku 3" />
+          <h3>Cantik Itu Luka</h3>
+          <p>Oleh: Eka Kurniawan</p>
+          <p>
+            Novel yang memadukan sejarah, mitos, dan realisme magis, dimulai
+            dengan bangkitnya seorang pelacur cantik bernama Dewi Ayu dari
+            kuburnya.
+          </p>
+          <button onclick="showForm('Cantik Itu Luka')">Pinjam Buku</button>
+        </div>
+        <div class="book">
+          <img src="img/bumi manusia.jpeg" alt="Buku 4" />
+          <h3>Bumi Manusia</h3>
+          <p>Oleh: Pramoedya Ananta Toer</p>
+          <p>
+            Novel ini menceritakan kisah Minke, pemuda pribumi terpelajar, yang
+            menjalin cinta dengan Annelies Mellema, putri dari seorang gundik
+            pribumi cerdas, Nyai Ontosoroh. Inti utama ceritanya adalah
+            perjuangan tragis keluarga ini melawan Pengadilan Kolonial Belanda
+            yang rasis.
+          </p>
+          <button onclick="showForm('Bumi Manusia')">Pinjam Buku</button>
+        </div>
+        <div class="book">
+          <img src="img/Gadis kretek.jpeg" alt="Buku 5" />
+          <h3>Gadis Kretek</h3>
+          <p>Oleh: Ratih Kumala</p>
+          <p>
+            Berawal dari permintaan sekarat seorang konglomerat kretek yang
+            ingin bertemu Jeng Yah, cinta masa lalunya. Tiga anaknya pun memulai
+            perjalanan menelusuri sejarah kretek Indonesia dan mengungkap
+            rahasia keluarga, persaingan bisnis, dan kisah cinta tersembunyi di
+            balik kejayaan industri kretek.
+          </p>
+          <button onclick="showForm('Gadis Kretek')">Pinjam Buku</button>
+        </div>
+        <div class="book">
+          <img src="img/perahu ketas.jpeg" alt="Buku 6" />
+          <h3>Perahu Kertas</h3>
+          <p>Oleh: Dee Lestari</p>
+          <p>
+            Kisah tentang Kugy dan Keenan, dua individu yang ditakdirkan bertemu
+            namun terus dipisahkan oleh pilihan hidup, karier, dan keadaan. Kugy
+            memiliki imajinasi liar dan mencintai dongeng, sementara Keenan
+            adalah seniman yang tertekan. Novel ini mengeksplorasi konflik
+            antara cinta, impian, dan takdir.
+          </p>
+          <button onclick="showForm('Perahu Kertas')">Pinjam Buku</button>
+        </div>
+      </div>
+
+      <div id="checkoutForm" class="checkout-form">
+        <h3>Form Peminjaman Buku</h3>
+        <form id="form">
+          <label for="nama">Nama Peminjam:</label>
+          <input type="text" id="nama" required />
+
+          <label for="judul">Judul Buku:</label>
+          <input type="text" id="judul" readonly />
+
+          <label for="tanggal">Tanggal Peminjaman:</label>
+          <input type="date" id="tanggal" required />
+
+          <div class="form-buttons">
+            <button type="button" class="btn" id="addBook">Tambah Buku</button>
+            <button type="submit" class="btn">Kirim</button>
+          </div>
+        </form>
+
+        <h4>📚 Daftar Buku yang Dipinjam:</h4>
+        <table id="bookTable">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Judul Buku</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Halaman Tentang -->
+    <section id="tentang" class="content">
+      <h2>Tentang Kami</h2>
+      <div class="tentang-container">
+        <div class="profil">
+          <img src="img/anggun-2.jpg" alt="Foto Pengelola" class="profil-img" />
+          <h3>Anggun Saskia</h3>
+          <p>
+            Saya adalah pengelola Perpustakaan Digital ini. Kami berkomitmen
+            untuk menyediakan akses mudah ke berbagai buku berkualitas, agar
+            siapa pun dapat belajar di mana saja dan kapan saja.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Halaman Kontak -->
+    <section id="kontak" class="content">
+      <h2>Hubungi Kami</h2>
+      <p>
+        Hubungi kami untuk pertanyaan, saran, atau informasi lebih lanjut
+        tentang layanan Perpustakaan Digital.
+      </p>
+
+      <div class="kontak-container">
+        <!-- Kiri: Info Kontak + Sosial Media -->
+        <div class="info-kontak">
+          <h3>Informasi Kontak</h3>
+          <p>
+            <strong>Alamat:</strong> Jl. Jenderal Sudirman No.5, Binturu, Kec.
+            Wara Sel., Kota Palopo, Sulawesi Selatan 91923
+          </p>
+          <p><strong>Telepon:</strong> (087757273606)</p>
+          <p><strong>Email:</strong> info@perpustakaandigital.com</p>
+
+          <div class="sosial-media">
+            <h4>Ikuti Kami</h4>
+            <ul>
+              <li><strong>Facebook:</strong> @PerpustakaanDigital</li>
+              <li><strong>Instagram:</strong> @perpus_digital</li>
+              <li><strong>Twitter:</strong> @perpus_online</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Kanan: Peta Lokasi -->
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3828.6876413916048!2d120.1960052775402!3d-3.006869089154143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d915f1f18ce6979%3A0x4d0f74abbec0dcd9!2sPerpustakaan%20Umum%20Daerah%20Palopo!5e1!3m2!1sid!2sid!4v1762075079320!5m2!1sid!2sid"
+            width="100%"
+            height="400"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 Perpustakaan Digital</p>
+    </footer>
+
+    <script>
+      let daftarBuku = [];
+
+      // Tampilkan form dengan judul terisi
+      function showForm(judul) {
+        const formDiv = document.getElementById("checkoutForm");
+        formDiv.style.display = "block";
+        document.getElementById("judul").value = judul;
+        window.scrollTo({ top: formDiv.offsetTop, behavior: "smooth" });
+      }
+
+      // Tambah buku ke daftar
+      document.getElementById("addBook").addEventListener("click", function () {
+        const judul = document.getElementById("judul").value;
+        if (!judul) {
+          alert("Pilih buku terlebih dahulu!");
+          return;
+        }
+
+        daftarBuku.push(judul);
+        updateTabel();
+        document.getElementById("judul").value = "";
+      });
+
+      // Hapus buku dari daftar
+      function hapusBuku(index) {
+        daftarBuku.splice(index, 1);
+        updateTabel();
+      }
+
+      // Update tabel daftar buku
+      function updateTabel() {
+        const tbody = document.querySelector("#bookTable tbody");
+        tbody.innerHTML = "";
+        daftarBuku.forEach((judul, i) => {
+          const row = `
+        <tr>
+          <td>${i + 1}</td>
+          <td>${judul}</td>
+          <td><button class="hapus-btn" onclick="hapusBuku(${i})">Hapus</button></td>
+        </tr>`;
+          tbody.innerHTML += row;
+        });
+      }
+
+      // Kirim form
+      document.getElementById("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const nama = document.getElementById("nama").value;
+        const tanggal = document.getElementById("tanggal").value;
+
+        if (daftarBuku.length === 0) {
+          alert("Tambahkan setidaknya satu buku untuk dipinjam!");
+          return;
+        }
+
+        alert(
+          `✅ Peminjaman Berhasil!\n\nNama: ${nama}\nTanggal: ${tanggal}\n\nBuku:\n${daftarBuku
+            .map((b, i) => i + 1 + ". " + b)
+            .join("\n")}`
+        );
+
+        // Reset
+        this.reset();
+        daftarBuku = [];
+        updateTabel();
+        document.getElementById("checkoutForm").style.display = "none";
+      });
+    </script>
+  </body>
+</html>
